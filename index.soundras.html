@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- links -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>sound</title>
+    <!-- start-style -->
+    <style>
+        #text{
+            width: 50%;
+            height: 90px;
+            padding-top: 5em;
+            margin: auto;
+        }
+        button#btn {
+          display: flex;
+        }
+    </style>
+    <!-- end-style -->
+</head>
+<body>
+    <!-- start-container -->
+    <div class="container">
+        <div class="form-floating" id="text">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px; margin-bottom: 2em;" ></textarea>
+            <button class="btn btn-primary m-auto" id="btn">
+                <i class="fa-solid fa-microphone-lines fs-3"></i>
+            </button>
+        </div>
+    </div>
+    <!-- end-continer -->
+    <script>
+        const button= document.querySelector("#btn");
+        const text =document.querySelector("#floatingTextarea2");
+        button.addEventListener("click",()=>{
+        const  textb =new SpeechSynthesisUtterance(text.value);
+        speechSynthesis.speak(textb);
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>
